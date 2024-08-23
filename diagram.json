@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "author": "Uri Shaked",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 9.6,
+      "left": -100.76,
+      "attrs": { "env": "micropython-20231005-v1.21.0" }
+    },
+    { "type": "board-ssd1306", "id": "oled1", "top": 99.14, "left": 57.83, "attrs": {} },
+    { "type": "wokwi-rgb-led", "id": "rgb1", "top": -5.6, "left": -190.9, "attrs": {} },
+    { "type": "wokwi-ir-receiver", "id": "ir1", "top": 46.65, "left": -260.98, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton-6mm",
+      "id": "btn1",
+      "top": 189.8,
+      "left": -172.8,
+      "attrs": { "color": "green" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "oled1:SCL", "esp:22", "green", [ "v0" ] ],
+    [ "oled1:SDA", "esp:21", "blue", [ "v-19.2", "h-124.73" ] ],
+    [ "oled1:GND", "esp:GND.2", "black", [ "v-67.2", "h-96" ] ],
+    [ "oled1:VCC", "esp:3V3", "red", [ "v-28.8", "h0.15", "v-76.8", "h-201.75" ] ],
+    [ "rgb1:COM", "esp:GND.1", "black", [ "v0" ] ],
+    [ "ir1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "rgb1:R", "esp:35", "red", [ "v0" ] ],
+    [ "rgb1:G", "esp:32", "limegreen", [ "v0" ] ],
+    [ "rgb1:B", "esp:34", "cyan", [ "v0" ] ],
+    [ "ir1:VCC", "esp:3V3", "red", [ "v19.2", "h-48", "v-172.8", "h182.4" ] ],
+    [ "ir1:DAT", "esp:27", "green", [ "v0" ] ],
+    [ "btn1:1.r", "esp:13", "green", [ "v0" ] ],
+    [ "btn1:2.l", "esp:GND.1", "black", [ "h-19.2", "v-47.6" ] ]
+  ],
+  "dependencies": {}
+}
